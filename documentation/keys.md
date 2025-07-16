@@ -65,4 +65,5 @@ function Update() {
 
     requestAnimationFrame(Update);
 }
+Update();  // You have to call it once, after that, it works
 ```
