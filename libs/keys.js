@@ -10,12 +10,6 @@ class keysKey {
         return new keysKey(...str.split("||"));
     }
 }
-/**
- * @description Az update ciklusodhoz add hozzá ennek az update functionjét
- * @description Ha nem adod hozzá, akkor semmi sem fog működni, ami frame-eket számol
- * @example
- * keys.update()
- */
 class keysClass {
     constructor(logKeysDown=false) {
         this.keysDown = new Set();
@@ -169,7 +163,7 @@ class keysKeyBind {
     }
 }
 /**
- * Frame számoláshoz
+ * Put this in your Update() loop:
  * @example keys.update()
  */
 const keys = new keysClass();
