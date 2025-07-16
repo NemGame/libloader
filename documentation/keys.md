@@ -1,9 +1,10 @@
 # Keys documentation
-### This is my solution to make using the keyboard easier
+### This is my solution to make using the keyboard easier, [keys.js](../libs/keys.js)
 
 ## How to use?
 ### You can access it, by the ```keys``` constant variable, or you can rename it in the file
 ### I highly recommend you adding ```keys.update()``` inside your update function, because this library needs to count frames in order to work properly
+### No need for any fancy things like NodeJS, it runs on plain JavaScript
 
 ## Variables
 ### Accessable by running ```keys.<var>```, e.g: ```keys.anyKeysDown```
