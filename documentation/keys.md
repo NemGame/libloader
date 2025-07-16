@@ -58,3 +58,11 @@ keys.bindkey("KeyA", () => { console.log("A is very much pressed"); }, "press");
 ### keysKey: used for stored keys
 ### keysClass: the main class of this library
 ### keysKeyBind: used for saving bound keys
+## An example of an Update() function:
+```
+function Update() {
+    keys.update();  // So the library works as intended
+
+    requestAnimationFrame(Update);
+}
+```
