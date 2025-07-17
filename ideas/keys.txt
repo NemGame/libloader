@@ -1,0 +1,4 @@
+ignoredKeys -> ingore keys, custom
+> blacklist
+whitelist ->
+> .length == 0 ? no whitelist : enforce whitelist
