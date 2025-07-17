@@ -19,7 +19,7 @@
 
 ## Commands / Functions
 ### Accessable by running ```keys.<function>(<args>)```, e.g: ```keys.hPress("KeyW")```
-### I use key.code, so you need to provide keys like "KeyW", "ShiftLeft", etc.
+### I use key.code, so you'll need to provide keys like "KeyW", "ShiftLeft", etc.
 ### If you set ```keys.logKeysDown``` to true, you'll be able to see the keycodes in the console
 #
 ### - isKeyPressed(key, time=1)     |       Returns true if the given key has been pressed down for exactly ```time``` amount of frames
