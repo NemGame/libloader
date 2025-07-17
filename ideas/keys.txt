@@ -2,6 +2,6 @@ ignoredKeys -> ingore keys, custom
 > blacklist
 whitelist ->
 > .length == 0 ? no whitelist : enforce whitelist
-.isKeyPressed()
+.isKeyPressed(), *.forEach() ; !.update()
 > for each => for, in
 > early exit
