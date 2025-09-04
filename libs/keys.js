@@ -1,3 +1,4 @@
+// 2025. 07. 17. ; 12:01
 class keysKey {
     constructor(name="", time=-1) {
         this.name = name;
@@ -13,6 +14,7 @@ class keysKey {
 class keysClass {
     constructor(logKeysDown=false) {
         this.keysDown = new Set();
+        this.cooldown = [];
         this.keysBound = {};
         this.logKeysDown = logKeysDown;
     }
@@ -79,8 +81,13 @@ class keysClass {
                 if (kname in this.keysBound) {
                     let boundKey = this.keysBound[kname];
                     boundKey.forEach(ak => {
-                        if (["up", "keysup"].includes(ak.type.toLowerCase()))
+                        if (!this.isOnCooldown(kname) && ["up", "keyup"].includes(ak.type.toLowerCase())) {
                             ak.func();
+                            if (ak.cooldown <= 1) {
+                                this.cooldown.push(new keysKeyCooldown(kname, ak.cooldown, ak.type));
+                                if (this.logKeysDown) console.log(`${kname} has been put on cooldown for ${ak.cooldown} frames`);
+                            }
+                        }
                     })
                 }
                 keys.splice(i, 1)
@@ -95,7 +102,7 @@ class keysClass {
      * @param {Function} func Bound function
      * @param {String} type keydown, down, keypress, press, keyup, up, keyhpress, hpress
      */
-    bindkey(key, func, type="keydown") {
+    bindkey(key, func, type="down", cooldown=0) {
         let place = this.keysBound[key];
         if (place) {
             let dirs = place.map(x => x.type);
@@ -104,10 +111,10 @@ class keysClass {
                 place[place.indexOf(found)].func = func;
             }
             else
-                place.push(keysKeyBind.as(func, type));
+                place.push(keysKeyBind.as(func, type, cooldown));
             return;
         }
-        this.keysBound[key] = [keysKeyBind.as(func, type)];
+        this.keysBound[key] = [keysKeyBind.as(func, type, cooldown)];
     }
     unbindkey(key, type=null) {
         if (type == null) delete this.keysBound[key];
@@ -133,7 +140,26 @@ class keysClass {
             return this.isKeyDown(key);
         }
     }
+    isOnCooldown(key="KeyW") {
+        for (let i = 0; i < this.cooldown.length; i++) {
+            if (this.cooldown[i].key == key) return true;
+        }
+        return false;
+    }
+    handleCooldowns() {
+        let removeIndexes = [];
+        this.cooldown.forEach((x, i) => {
+            x.cooldown -= 1;
+            if (x.cooldown > 0) return;
+            removeIndexes.push(i);
+        });
+        removeIndexes.reverse().forEach(i => {
+            if (this.logKeysDown) console.log(`${this.cooldown[i].key} removed from cooldown list`);
+            this.cooldown.splice(i, 1);
+        });
+    }
     update() {
+        this.handleCooldowns();
         let keys = [...this.keysDown].map(x => { 
             let y = x.split("||"); 
             return new keysKey(y[0], parseInt(y[1]) + 1).str()
@@ -145,8 +171,13 @@ class keysClass {
                 let boundKey = this.keysBound[key];
                 boundKey.forEach(ak => {
                     if (ak.type.toLowerCase().includes("up")) return;
-                    if (this.isKeyActive(key, ak.type))
+                    if (!this.isOnCooldown(key) && this.isKeyActive(key, ak.type)) {
                         ak.func();
+                        if (ak.cooldown <= 1) {
+                            this.cooldown.push(new keysKeyCooldown(key, ak.cooldown, ak.type));
+                            if (this.logKeysDown) console.log(`${key} has been put on cooldown for ${ak.cooldown} frames`);
+                        }
+                    }
                 })
             }
         })
@@ -154,12 +185,27 @@ class keysClass {
     }
 }
 class keysKeyBind {
-    constructor(func=() => {}, type="keydown") {
+    /**
+     * 
+     * @param {Function} func The function that runs
+     * @param {string} type keydown, down, keypress, press, keyup, up, keyhpress, hpress
+     * @param {Number} cooldown The cooldown between registering actions
+     */
+    constructor(func=() => {}, type="keydown", cooldown=0) {
         this.func = func;
         this.type = type;
+        /** Time between registering as pressed in frames */
+        this.cooldown = cooldown;
     }
-    static as(func, type="keydown") {
-        return new keysKeyBind(func, type);
+    static as(func, type="keydown", cooldown=0) {
+        return new keysKeyBind(func, type, cooldown);
+    }
+}
+class keysKeyCooldown {
+    constructor(key="", cooldown=0, type="down") {
+        this.key = key;
+        this.cooldown = cooldown;
+        this.type = type;
     }
 }
 /**
