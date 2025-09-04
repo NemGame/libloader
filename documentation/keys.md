@@ -1,6 +1,6 @@
 # Keys documentation
 ### This is my solution to make using the keyboard easier, [keys.js](../libs/keys.js)
-
+# Is fucked, imma fix it later
 ## How to use?
 ### You can access it with the ```keys``` constant variable, or you can rename it in the file
 ### I highly recommend you adding ```keys.update()``` inside your update function, because this library needs to count frames in order to work properly
@@ -16,6 +16,7 @@
 ### **Important! Do not edit**
 ### - keysDown          |       stores the keys being pressed, format: key||frames, e.g: KeyW||69
 ### - keysBound         |       stores the info for the keys bound (bindkey)
+### - cooldown          |       stores the info for the keys on cooldown
 
 ## Commands / Functions
 ### Accessable by running ```keys.<function>(<args>)```, e.g: ```keys.hPress("KeyW")```
@@ -27,18 +28,21 @@
 ### - hPress(key)                   |       Returns true, if the given key has been pressed for 1 frames OR more than 19 frames
 ### - isKeyDown(key)                |       Returns true, if the given key is currently pressed down
 ### - add(key)                      |       Don't use it. It's used for handling new keypresses
-### - remove(key)                      |       Don't use it. It's used for handling removing no longer pressed keys
-### - bindkey(key, func, type="keydown")
+### - remove(key)                   |       Don't use it. It's used for handling removing no longer pressed keys
+### - bindkey(key, func, type="keydown", cooldown=0)
 ###     - examples: 
 ```
-keys.bindkey("KeyW", () => { console.log("W has just been pressed"); }, "press");
-keys.bindkey("KeyA", () => { console.log("A is being held down"); }, "down");
-keys.bindkey("KeyS", () => { console.log("S has just been released"); }, "up");
-keys.bindkey("KeyD", () => { console.log("D... is active"); }, "hpress");
+keys.bindkey("KeyW", () => { console.log("W has just been pressed"); }, "press", 10);
+keys.bindkey("KeyA", () => { console.log("A is being held down"); }, "down", 0);
+keys.bindkey("KeyS", () => { console.log("S has just been released"); }, "up", 52);
+keys.bindkey("KeyD", () => { console.log("D... is active"); }, "hpress", 7);
 ```
 ### - unbindkey(key, type=null)     |       Unbinds the given key, if type is given, only key>type will be removed
 ### - isKeyActive(key, type="down") |       Is the key active in the way of ```type```. Doesn't accept keyup and up
 ### - update()                      |       I highly recommend you adding this to your Update() cycle. Needed for: binding keys, .hPress(), .hasBeenDownFor(), .isKeyPressed()
+### - isOnCooldown()                |       Returns true if key is on cooldown
+### - handleCooldowns()             |       Handles cooldowns
+
 ## Bound key types
 ### - keydown, down: uses the ```isKeyDown()``` function
 ### - keypress, press: uses the ```isKeyPressed()``` function
@@ -54,10 +58,13 @@ keys.bindkey("KeyA", () => { console.log("A was released"); }, "up");
 keys.bindkey("KeyA", () => { console.log("A has just been pressed down"); }, "press");
 keys.bindkey("KeyA", () => { console.log("A is very much pressed"); }, "press");
 ```
+## Use the cooldown feature
+### Dont
 ## Classes:
 ### keysKey: used for stored keys
 ### keysClass: the main class of this library
 ### keysKeyBind: used for saving bound keys
+### keysKeyCooldown: used for saving keys on cooldown
 ## An example of an Update() function:
 ```
 function Update() {
@@ -67,3 +74,4 @@ function Update() {
 }
 Update();  // You have to call it once, after that, it works
 ```
+
