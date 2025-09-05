@@ -1,6 +1,6 @@
 # Keys documentation
 ### This is my solution to make using the keyboard easier, [keys.js](../libs/keys.js)
-# Is fucked, imma fix it later
+### Change-log [hehe](../changelogs/keys.log)
 ## How to use?
 ### You can access it with the ```keys``` constant variable, or you can rename it in the file
 ### I highly recommend you adding ```keys.update()``` inside your update function, because this library needs to count frames in order to work properly
@@ -74,4 +74,5 @@ function Update() {
 }
 Update();  // You have to call it once, after that, it works
 ```
+
 
