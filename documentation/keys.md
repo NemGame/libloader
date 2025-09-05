@@ -58,7 +58,17 @@ keys.bindkey("KeyA", () => { console.log("A has just been pressed down"); }, "pr
 keys.bindkey("KeyA", () => { console.log("A is very much pressed"); }, "press");
 ```
 ## Use the cooldown feature
-### Dont
+### It's an optional argument, it can be set when binding a key with bindkey as the 4th variable
+### If the cooldown is set to 1 or less it's instant, so it won't even be added to the cooldown list
+### Examples:
+```
+keys.bindkey("KeyW", () => {
+    console.log("Hell yeah");
+}, "down", 10);  // While you're holding the W key, it's gonna print "Hell yeah" to the console, then put itself on a cooldown for 10 frames
+keys.bindkey("KeyW", () => {
+    console.log("Horses");
+}, "up");  // When the W key is released, it's gonna print "Horses" to the console, no cooldown
+```
 ## Classes:
 ### keysKey: used for stored keys
 ### keysClass: the main class of this library
@@ -73,6 +83,7 @@ function Update() {
 }
 Update();  // You have to call it once, after that, it works
 ```
+
 
 
 
