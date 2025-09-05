@@ -83,7 +83,7 @@ class keysClass {
                     boundKey.forEach(ak => {
                         if (!this.isOnCooldown(kname) && ["up", "keyup"].includes(ak.type.toLowerCase())) {
                             ak.func();
-                            if (ak.cooldown <= 1) {
+                            if (ak.cooldown > 1) {
                                 this.cooldown.push(new keysKeyCooldown(kname, ak.cooldown, ak.type));
                                 if (this.logKeysDown) console.log(`${kname} has been put on cooldown for ${ak.cooldown} frames`);
                             }
@@ -173,7 +173,7 @@ class keysClass {
                     if (ak.type.toLowerCase().includes("up")) return;
                     if (!this.isOnCooldown(key) && this.isKeyActive(key, ak.type)) {
                         ak.func();
-                        if (ak.cooldown <= 1) {
+                        if (ak.cooldown > 1) {
                             this.cooldown.push(new keysKeyCooldown(key, ak.cooldown, ak.type));
                             if (this.logKeysDown) console.log(`${key} has been put on cooldown for ${ak.cooldown} frames`);
                         }
@@ -216,3 +216,4 @@ const keys = new keysClass();
 
 document.addEventListener("keydown", function(k) { keys.add(new keysKey(k.code, 0)); })
 document.addEventListener("keyup", function(k) { keys.remove(new keysKey(k.code)); })
+
