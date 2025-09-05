@@ -83,7 +83,5 @@ function Update() {
 }
 Update();  // You have to call it once, after that, it works
 ```
-
-
-
-
+## Plans:
+### remove keysKey class or stay with the string format, but stop runtime conversion between the two, it's unnecessary.
