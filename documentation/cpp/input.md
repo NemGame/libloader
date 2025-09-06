@@ -1,6 +1,7 @@
 # Input documentation
 ### I didn't like how `cin` would jump to a new line every time Enter was pressed, before any other character was
-### [Enter, Enter, W, A, S, D, Enter] would do: newline, newline, W, A, S, D, return WASD
+### Let's say the instructions are: [Enter, Enter, W, A, S, D, Enter]
+### `cin` would do: newline, newline, W, A, S, D, return WASD
 ### My solution does: returns ""
 ### Because Enter is also called Return, so I believe it should return stuff when it's pressed
 ## Functions
