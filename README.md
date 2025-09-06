@@ -1,6 +1,7 @@
 # Libraries of NemGame (NemGamingAkos)
 ### You may use them in any way you please
 ### Any dependency will be listed in the documentation
+### All are backwards compatible, unless said otherwise in their respective documentations
 ## JavaScript libraries
 ### [keys](libs/js/keys.js) - Handles keypresses on the keyboard, has a bindkey feature - [Documentation](documentation/js/keys.md)
 ## C++ libraries
