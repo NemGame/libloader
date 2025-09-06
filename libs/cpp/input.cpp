@@ -17,6 +17,8 @@ string input(string pre = "", string post = "\n") {
 			}
 			continue;
 		}
+		if (ch == 9) continue;
+		if (ch == 27) continue;
 		out.push_back(ch);
 		cout << ch;
 	}
