@@ -4,6 +4,7 @@
 ### `cin` would do: newline, newline, W, A, S, D, return WASD
 ### My solution does: returns ""
 ### Because Enter is also called Return, so I believe it should return stuff when it's pressed
+### All heil [input.cpp](../../libs/cpp/input.cpp)
 ## Functions
 ### input(string pre="", string post="\n") - Uses hyper-super-future-technology (`_getch()`) to get characters from the user, until Enter (Return) is pressed, compatible with Backspace
 ### inputLong(string pre="", string post="\n") - Calls `input(pre, post)` and converts the output to a long
