@@ -5,14 +5,14 @@
 ### Important: fok = degrees (e.g. 45°, 60°, 90°, 420°)
 ### The in-file explanation is half-Hungarian, half-English, if you wanna know stuff, either learn Hungarian (easy) or just read this documentation
 ### There are multiple ways to create variables with this class, here are all of them:
-```
+```js
 let v1 = new Vector(6, 9);
 let v2 = Vector.as(4, 20);
 let v3 = Vector.grid(2);  // x = 2, y = 2
 let v4 = Vector.parseJSON({"x": 3, "y": 4});  // Or .fromJSON
-let v5 = Vector.parseJSON("{'x': 3, 'y': 4}");  // Or .fromJSON
+let v5 = Vector.parseJSON("{\"x\": 3, \"y\": 4}");  // Or .fromJSON
 let v6 = Vector.parseFok(69);  // Or .fromFok, creates a vector from degrees with a length of 1
-let v7 = Vector.parseRad(1.0471975511965976);  // Or .fromRad, creates a vector from radians with a length of 1
+let v7 = Vector.parseRad(Math.PI);  // Or .fromRad, creates a vector from radians with a length of 1
 ```
 ## Static variables
 ### You can call them using the `Vector.<var>` syntax (e.g. Vector.null)
