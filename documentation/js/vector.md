@@ -1,5 +1,5 @@
 # Vector documentation
-### My library to make using 2D Vector a TON easier, [vector.js](../libs/vector.js)
+### My library to make using 2D Vector a TON easier, [vector.js](../libs/js/vector.js)
 ## How to use?
 ### Accessible by the Vector class
 ### Important: fok = degrees (e.g. 45°, 60°, 90°, 420°)
