@@ -4,6 +4,7 @@
 ### All are backwards compatible, unless said otherwise in their respective documentations
 ## JavaScript libraries
 ### [keys](libs/js/keys.js) - Handles keypresses on the keyboard, has a bindkey feature - [Documentation](documentation/js/keys.md)
+### [vector](libs/js/vector.js) - A heavy library for handling 2D Vectors - [Documentation](documentation/js/vector.md)
 ## C++ libraries
 ### [input](libs/cpp/input.cpp) - A usable input. Never creates new lines, unless specifically told to do so - [Documentation](documentation/cpp/input.md)
 ## I'll put my libs on [ngakos.lol/libloader](https://www.ngakos.lol/libloader/) too
