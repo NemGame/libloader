@@ -97,7 +97,7 @@ Output:
 - mult(v2)                 |    multiplies it's own values by `v2`'s values
 - dev(v2)                  |    devides it's own values by `v2`'s values
 #### Complex self targeting functions
-##### Most of the won't work if you only call it once, because they're designed to look cool, if you do call them, I'd recommend doing so in a loop
+##### Most of them won't work if you only call it once, because they're designed to look cool, if you do call them, I'd recommend doing so in a loop
 - moveTowards(v2, speed=5, enableTeleport=true)    |    moves towards `v2` by `speed` steps. If `enableTeleport` is true and it would overshoot `v2` with the next step, it teleports to `v2`
 - lockWithDistance(v2, speed=10, distance=5, min=NaN, max=NaN)    |    it sets it's position, so that it's exactly `distance` steps away from `v2`. The `speed` is how fast it get's there. The `min` and `max` are the values that set the maximum- and minimum- speed after calculation. Example usage: rotating mouse cursor
 - followWithDistance(v2, distance=5)    |    if the distance between itself and `v2` is greater than `distance`, it goes towards `v2` until the distance between the 2 is equal to `distance`. Example usage: cool chains
