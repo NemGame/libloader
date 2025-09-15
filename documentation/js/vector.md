@@ -70,6 +70,14 @@ let v7 = Vector.parseRad(Math.PI);  // Or .fromRad, creates a vector from radian
 ## Functions
 ### You can call them using the `v.<function>(<?args>)` syntax, where v is an already defined Vector and <function> is the function name (e.g. Vector.as(5, 6).scale(72))
 #### Self targeting functions
+##### All of them return `this`, so you can chain them together, e.g. this is valid:
+```js
+console.log(Vector.as(6, 7).normalized.parseFok(45).normalize().scale(720).dev(Vector.grid(42)).toString("♥"));
+```
+Output:
+```js
+12.121830534626529♥12.121830534626529
+```
 - parseJSON(json="")   |    same as Vector.parseJSON, but it sets the values on itself
 - parseFok(fok=0)      |    same as Vector.parseFok, but it sets the values on itself
 - parseRad(rad=0)      |    same as Vector.parseRad, but it sets the values on itself
