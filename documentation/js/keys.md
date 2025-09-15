@@ -2,7 +2,6 @@
 ### This is my solution to make using the keyboard easier, [keys.js](../../libs/js/keys.js)
 ## How to use?
 ### You can access it with the ```keys``` constant variable, or you can rename it in the file
-### I highly recommend you adding ```keys.update()``` inside your update function, because this library needs to count frames in order to work properly
 ### No need for any fancy things like NodeJS, it's built on plain JavaScript
 
 ## Variables
@@ -16,6 +15,7 @@
 ### - keysDown          |       stores the keys being pressed, format: key||frames, e.g: KeyW||69
 ### - keysBound         |       stores the info for the keys bound (bindkey)
 ### - cooldown          |       stores the info for the keys on cooldown
+### - updateID          |       stores the id needed to start running a new update cycle, exists for backwards compatibility
 
 ## Commands / Functions
 ### Accessable by running ```keys.<function>(<args>)```, e.g: ```keys.hPress("KeyW")```
@@ -38,7 +38,7 @@ keys.bindkey("KeyD", () => { console.log("D... is active"); }, "hpress", 7);
 ```
 ### - unbindkey(key, type=null)     |       Unbinds the given key, if type is given, only key>type will be removed
 ### - isKeyActive(key, type="down") |       Is the key active in the way of ```type```. Doesn't accept keyup and up
-### - update()                      |       I highly recommend you adding this to your Update() cycle. Needed for: binding keys, .hPress(), .hasBeenDownFor(), .isKeyPressed()
+### - update()                      |       Don't use it. Starts the update loop, automatically ran.
 ### - isOnCooldown()                |       Returns true if key is on cooldown
 ### - handleCooldowns()             |       Handles cooldowns
 
@@ -74,15 +74,7 @@ keys.bindkey("KeyW", () => {
 ### keysClass: the main class of this library
 ### keysKeyBind: used for saving bound keys
 ### keysKeyCooldown: used for saving keys on cooldown
-## An example of an Update() function:
-```
-function Update() {
-    keys.update();  // So the library works as intended
-
-    requestAnimationFrame(Update);
-}
-Update();  // You have to call it once, after that, it works
-```
 ## Plans:
 ### remove keysKey class or stay with the string format, but stop runtime conversion between the two, it's unnecessary.
+
 
