@@ -57,6 +57,7 @@ let v7 = Vector.parseRad(Math.PI);  // Or .fromRad, creates a vector from radian
 #### Calculated in runtime
 - length  |    returns the length of the Vector
 - normalized    |    returns the normalized value of the Vector
+- rounded       |    returns a new Vector with it's own values rounded to the nearest integer
 - self          |    returns a copy of itself
 - radian        |    returns it's direction in radians
 - fok           |    returns it's direction in degrees
