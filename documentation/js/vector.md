@@ -50,7 +50,7 @@ let v7 = Vector.parseRad(Math.PI);  // Or .fromRad, creates a vector from radian
 - fokToRadian(fok=0)      |        returns the given degrees in radians
 - radianToFok(radian=0)   |        returns the given radians in degrees
 ## Variables
-### You can call them using the `v.<var>` syntax, where v is an already defined Vector and <var> is the variable name (e.g. Vector.as(5, 6).x)
+### You can call them using the `v.<var>` syntax, where v is an already defined Vector and \<var\> is the variable name (e.g. Vector.as(5, 6).x)
 #### Constructor
 - x    |    the `x` value of the Vector
 - y    |    the `y` value of the Vector
@@ -69,7 +69,7 @@ let v7 = Vector.parseRad(Math.PI);  // Or .fromRad, creates a vector from radian
 - dforward      |    returns the direction forward in radians
 - dleft         |    returns the direction to it's left (forward - 90 degrees)
 ## Functions
-### You can call them using the `v.<function>(<?args>)` syntax, where v is an already defined Vector and <function> is the function name (e.g. Vector.as(5, 6).scale(72))
+### You can call them using the `v.<function>(<?args>)` syntax, where v is an already defined Vector and \<function\> is the function name (e.g. Vector.as(5, 6).scale(72))
 #### Self targeting functions
 ##### All of them return `this`, so you can chain them together, e.g. this is valid:
 ```js
