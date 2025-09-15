@@ -108,7 +108,7 @@ class Vector {
     }
     /** Vektor relatívan jobbra */
     get right() {
-        return Vector.as(this.x + 1, this.y - 1);
+        return Vector.as(this.x + 1, this.y);
     }
     /** Ugyan az-e, mint a Vector.null */
     get isNull() {
