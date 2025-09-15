@@ -1,4 +1,4 @@
-/** Version: 1.1
+/** Version: 1.2
  * 
  * Created by NemGamingAkos
  * 
@@ -78,6 +78,10 @@ class Vector {
         let l = this.length;
         return l === 0 ? Vector.null : Vector.as(this.x / l, this.y / l);
     }
+    /** Returns it's values rounded */
+    get rounded() {
+        return new Vector(Math.round(this.x), Math.round(this.y));
+    }
     /** this.copy() */
     get self() {
         return this.copy()
@@ -116,7 +120,7 @@ class Vector {
     }
     /** Irány balra */
     get dleft() {
-        return (this.radian - Vector.fok90rad) * Vector.fokToRad;
+        return this.radian - Vector.fok90rad;
     }
     /** new Vector(0, 0) */
     static get null() {
@@ -161,7 +165,7 @@ class Vector {
         return new Vector(Math.cos(rad), Math.sin(rad))
     }
     /** Alias for parseRad */
-    static fromRad(fok=0, ztz=false) { return Vector.parseRad(fok, ztz); }
+    static fromRad(rad=0, ztz=false) { return Vector.parseRad(rad, ztz); }
     /** Radián -> Vektor 
      * @param {boolean} [ztz=false] rad == 0 => Vector.null
     */
