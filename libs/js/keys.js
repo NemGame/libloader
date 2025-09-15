@@ -17,6 +17,7 @@ class keysClass {
         this.cooldown = [];
         this.keysBound = {};
         this.logKeysDown = logKeysDown;
+        this.updateID = -69;  // Makes sure that only 1 update cycle is running
     }
     get anyKeyDown() {
         return this.keysDown.size > 0;
@@ -158,7 +159,8 @@ class keysClass {
             this.cooldown.splice(i, 1);
         });
     }
-    update() {
+    update(id=0) {
+        if (id != this.updateID) return;
         this.handleCooldowns();
         let keys = [...this.keysDown].map(x => { 
             let y = x.split("||"); 
@@ -182,6 +184,7 @@ class keysClass {
             }
         })
         if (this.logKeysDown) console.log(keys);
+        requestAnimationFrame(() => { this.update(id); });
     }
 }
 class keysKeyBind {
@@ -213,6 +216,8 @@ class keysKeyCooldown {
  * @example keys.update()
  */
 const keys = new keysClass();
+
+keys.update(keys.updateID);  // Starts the update cycle
 
 document.addEventListener("keydown", function(k) { keys.add(new keysKey(k.code, 0)); })
 document.addEventListener("keyup", function(k) { keys.remove(new keysKey(k.code)); })
