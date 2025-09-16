@@ -96,11 +96,11 @@ Output:
 - set(x=0, y=0)            |    sets it's own values to the given ones
 - setv(v2=Vector.null)     |    sets it's own values to the given vector's values
 - moveInDirection(v2)      |    moves in `v2`'s direction
-- add(v2)                  |    adds `v2`'s values to it's own
-- sub(v2)                  |    subtracts `v2`'s values from it's own
-- mult(v2)                 |    multiplies it's own values by `v2`'s values
-- dev(v2)                  |    devides it's own values by `v2`'s values
-- modulo(v2)               |    uses the modulo operation, own values % `v2`'s values
+- add(v2)                  |    adds `v2`'s values to it's own, `v2` may be a Vector, a Number or a String
+- sub(v2)                  |    subtracts `v2`'s values from it's own, `v2` may be a Vector, a Number or a String
+- mult(v2)                 |    multiplies it's own values by `v2`'s values, `v2` may be a Vector, a Number or a String
+- dev(v2)                  |    devides it's own values by `v2`'s values, `v2` may be a Vector, a Number or a String
+- modulo(v2)               |    uses the modulo operation, own values % `v2`'s values, `v2` may be a Vector, a Number or a String
 #### Complex self targeting functions
 ##### Most of them won't work if you only call it once, because they're designed to look cool, if you do call them, I'd recommend doing so in a loop
 - moveTowards(v2, speed=5, enableTeleport=true)    |    moves towards `v2` by `speed` steps. If `enableTeleport` is true and it would overshoot `v2` with the next step, it teleports to `v2`
@@ -120,6 +120,7 @@ Output:
 - isSameAs(v2=this.copy())                 |    returns true, if the given vector's values are equal to it's values
 - copy()                                   |    returns a copy of itself
 - isDivisibleBy(n=2)                       |    returns true, if both of it's values are divisable by `n`
+- placeInGrid(n=16)                        |    within a grid where the size of the cells is `n`, returns the position of the cell in which this would be
 - toString(split=";")                      |    returns a string with the syntax: `"${x}${split}${y}"`, `split` is the separator
 #### Visual functions
 - visualizev(pos=Vector.null)              |    draws a circle with a line on the inside in the direction that the vector points in, with the length of the vector in the position of `pos`
