@@ -1,7 +1,7 @@
 # Vector documentation
 ### My library to make using 2D Vector a TON easier, [vector.js](../../libs/js/vector.js)
 ## How to use?
-### Accessible by the Vector class
+### Accessible via the Vector class
 ### Important: fok = degrees (e.g. 45°, 60°, 90°, 420°)
 ### The in-file explanation is half-Hungarian, half-English, if you wanna know stuff, either learn Hungarian (easy) or just read this documentation
 ### There are multiple ways to create variables with this class, here are all of them:
