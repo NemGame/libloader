@@ -1,4 +1,4 @@
-/** Version: 1.2
+/** Version: 1.3
  * 
  * Created by NemGamingAkos
  * 
@@ -81,6 +81,14 @@ class Vector {
     /** Returns it's values rounded */
     get rounded() {
         return new Vector(Math.round(this.x), Math.round(this.y));
+    }
+    /** Math.floor */
+    get floor() {
+        return new Vector(Math.floor(this.x), Math.floor(this.y));
+    }
+    /** Math.ceil */
+    get ceil() {
+        return new Vector(Math.ceil(this.x), Math.ceil(this.y));
     }
     /** this.copy() */
     get self() {
@@ -326,6 +334,18 @@ class Vector {
     /** Osztás értéke */
     deved(v2) {
         return new Vector(this.x / v2.x, this.y / v2.y);
+    }
+    /** Uses the modulo operator (%) */
+    modulo(v2) {
+        return this.setv(this.moduloed(v2));
+    }
+    /** The value as if .modulo was called */
+    moduloed(v2) {
+        return new Vector(this.x % v2.x, this.y % v2.y);
+    }
+    /** Checks if both of the values of the number are devisible by `n` */
+    isDivisibleBy(n=2) {
+        return this.x % n == 0 && this.y % n == 0;
     }
     /** Vektor -> String */
     toString(split=";") {
