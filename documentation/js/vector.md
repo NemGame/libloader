@@ -59,6 +59,8 @@ let v7 = Vector.parseRad(Math.PI);  // Or .fromRad, creates a vector from radian
 - length  |    returns the length of the Vector
 - normalized    |    returns the normalized value of the Vector
 - rounded       |    returns a new Vector with it's own values rounded to the nearest integer
+- floor         |    returns a new Vector with it's own values rounded down
+- ceil          |    returns a new Vector with it's own values rounded up
 - self          |    returns a copy of itself
 - radian        |    returns it's direction in radians
 - fok           |    returns it's direction in degrees
@@ -98,6 +100,7 @@ Output:
 - sub(v2)                  |    subtracts `v2`'s values from it's own
 - mult(v2)                 |    multiplies it's own values by `v2`'s values
 - dev(v2)                  |    devides it's own values by `v2`'s values
+- modulo(v2)               |    uses the modulo operation, own values % `v2`'s values
 #### Complex self targeting functions
 ##### Most of them won't work if you only call it once, because they're designed to look cool, if you do call them, I'd recommend doing so in a loop
 - moveTowards(v2, speed=5, enableTeleport=true)    |    moves towards `v2` by `speed` steps. If `enableTeleport` is true and it would overshoot `v2` with the next step, it teleports to `v2`
@@ -109,12 +112,14 @@ Output:
 - subbed(v2)           |    returns a new Vector, as if .sub(v2) was called on itself
 - multed(v2)           |    returns a new Vector, as if .mult(v2) was called on itself
 - deved(v2)            |    returns a new Vector, as if .dev(v2) was called on itself
+- moduloed(v2)         |    returns a new Vector, as if .modulo(v2) was called on itself
 #### Info functions
 - distanceTo(v2=Vector.null)               |    returns the distance between itself and the given vector
 - directionTo(v2=Vector.null, rad=true)    |    returns the direction between itself and the given vector. By default, it returns radians.
 - similar(v2, threshold=0)                 |    returns true, if the difference between the given vector and itself is less than or equal to `threshold`
 - isSameAs(v2=this.copy())                 |    returns true, if the given vector's values are equal to it's values
 - copy()                                   |    returns a copy of itself
+- isDivisibleBy(n=2)                       |    returns true, if both of it's values are divisable by `n`
 - toString(split=";")                      |    returns a string with the syntax: `"${x}${split}${y}"`, `split` is the separator
 #### Visual functions
 - visualizev(pos=Vector.null)              |    draws a circle with a line on the inside in the direction that the vector points in, with the length of the vector in the position of `pos`
