@@ -4,7 +4,7 @@
 ### Accessible via the Vector class
 ### Important: fok = degrees (e.g. 45°, 60°, 90°, 420°)
 ### The in-file explanation is half-Hungarian, half-English, if you wanna know stuff, either learn Hungarian (easy) or just read this documentation
-### There are multiple ways to create variables with this class, here are all of them:
+### There are multiple ways to define variables with this class, here are all of them:
 ```js
 let v1 = new Vector(6, 9);
 let v2 = Vector.as(4, 20);
