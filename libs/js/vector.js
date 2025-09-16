@@ -1,4 +1,4 @@
-/** Version: 1.3
+/** Version: 1.4
  * 
  * Created by NemGamingAkos
  * 
@@ -305,47 +305,71 @@ class Vector {
     }
     /** Összeadás */
     add(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return this.setv(this.added(v2));
     }
     /** Összeadás értéke */
     added(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return new Vector(this.x + v2.x, this.y + v2.y);
     }
     /** Kivonás */
     sub(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return this.setv(this.subbed(v2))
     }
     /** Kivonás értéke */
     subbed(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return new Vector(this.x - v2.x, this.y - v2.y);
     }
     /** Szorzás */
     mult(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return this.setv(this.multed(v2))
     }
     /** Szorás értéke */
     multed(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return new Vector(this.x * v2.x, this.y * v2.y);
     }
     /** Osztás */
     dev(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return this.setv(this.deved(v2))
     }
     /** Osztás értéke */
     deved(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return new Vector(this.x / v2.x, this.y / v2.y);
     }
     /** Uses the modulo operator (%) */
     modulo(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return this.setv(this.moduloed(v2));
     }
     /** The value as if .modulo was called */
     moduloed(v2) {
+        if (typeof v2 === "string") v2 = Number.parseFloat(v2);
+        if (typeof v2 === "number") v2 = Vector.grid(v2);
         return new Vector(this.x % v2.x, this.y % v2.y);
     }
     /** Checks if both of the values of the number are devisible by `n` */
     isDivisibleBy(n=2) {
         return this.x % n == 0 && this.y % n == 0;
+    }
+    /** Returns how manyeth cell is this in */
+    placeInGrid(n=16) {
+        return this.pos.deved(n).floor;
     }
     /** Vektor -> String */
     toString(split=";") {
