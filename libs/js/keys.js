@@ -159,6 +159,22 @@ class keysClass {
             this.cooldown.splice(i, 1);
         });
     }
+    lockAllKeys(except = []) {
+        if (!navigator.keyboard || !navigator.keyboard.lock) {
+            console.warn("Keyboard lock is not supported");
+            return 1;
+        }
+        let codes = [
+            ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map(x => "Key" + x),
+            ..."0123456789".split("").map(x => "Digit" + x),
+            ...Array.from({ length: 24 }).map((_, i) => "F" + (i + 1)),
+            "ShiftLeft", "ShiftRight", "ControlLeft", "ControlRight",
+            "AltLeft", "AltRight", "MetaLeft", "MetaRight",
+            "CapsLock", "Tab", "Escape", "Enter", "Space",
+            "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"
+        ];
+        navigator.keyboard.lock(codes.filter(x => !except.includes(x)));
+    }
     update(id=0) {
         if (id != this.updateID) return;
         this.handleCooldowns();
