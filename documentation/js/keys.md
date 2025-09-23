@@ -41,6 +41,7 @@ keys.bindkey("KeyD", () => { console.log("D... is active"); }, "hpress", 7);
 ### - update()                      |       Don't use it. Starts the update loop, automatically ran.
 ### - isOnCooldown()                |       Returns true if key is on cooldown
 ### - handleCooldowns()             |       Handles cooldowns
+### - lockAllKeys(except=[])        |       Locks all keys except from the ones specified in `except` from reaching the browser, like CtrlLeft, KeyW, AltLeft, F4. Only works in fullscreen mode and only in chromium based browsers (Google Chrome, Opera GX, Microsoft Edge)
 
 ## Bound key types
 ### - keydown, down: uses the `isKeyDown()` function
@@ -76,6 +77,7 @@ keys.bindkey("KeyW", () => {
 ### keysKeyCooldown: used for saving keys on cooldown
 ## Plans:
 ### remove keysKey class or stay with the string format, but stop runtime conversion between the two, it's unnecessary.
+
 
 
 
